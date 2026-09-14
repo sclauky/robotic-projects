@@ -1,0 +1,9 @@
+# Dossiers de compilation et de cache PlatformIO
+.pio/
+.clangd/
+.gcc-flags.json
+
+# Cache local VS Code
+.vscode/.browse.c_cpp_properties.json
+.vscode/.c_cpp_properties.json
+.vscode/launch.json
