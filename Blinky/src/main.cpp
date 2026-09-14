@@ -1,15 +1,19 @@
-#include <Arduino.h> 
+#include <Arduino.h> // Inclusion de la bibliothèque de base
 
-const int LED_PIN = 13; // defini l'emplacement de la pin sur le uno3
+const int buttonPin = 2; // Broche du bouton
+const int ledPin = 13;   // Broche de la LED
 
-void setup() { // void setup() => fonction qui s'exécute une seule fois au démarrage du programme
-    pinMode(LED_PIN, OUTPUT); // configure la pin 13 comme une sortie (pc source de courant donc output)
+void setup() {
+  pinMode(buttonPin, INPUT);  // Configuration de la Pin 2 en entrée (bouton)
+  pinMode(ledPin, OUTPUT);    // Configuration de la Pin 13 en sortie (LED)
 }
 
 void loop() {
-    digitalWrite(LED_PIN, HIGH); // allume la LED
-    delay(1000); // pendant 1 seconde (1000 millisecondes)
+  int buttonState = digitalRead(buttonPin); // Lecture du bouton (0 ou 1)
 
-    digitalWrite(LED_PIN, LOW); // éteint la LED
-    delay(1000); // pendant 1 seconde (1000 millisecondes)
+  if (buttonState == HIGH) { // Si le bouton est appuyé (1 / 5V)
+    digitalWrite(ledPin, HIGH); // On allume la LED
+  } else {                      // Sinon (bouton relâché / 0V)
+    digitalWrite(ledPin, LOW);  // On éteint la LED
+  }
 }
